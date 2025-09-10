@@ -34,10 +34,10 @@ export default function Internships() {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'remote': return 'bg-green-100 text-green-800 border-green-200';
-      case 'hybrid': return 'bg-blue-100 text-blue-800 border-blue-200';
-      case 'on-site': return 'bg-orange-100 text-orange-800 border-orange-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+      case 'remote': return 'bg-accent/20 text-accent border-accent/30';
+      case 'hybrid': return 'bg-primary/20 text-primary border-primary/30';
+      case 'on-site': return 'bg-orange/20 text-orange border-orange/30';
+      default: return 'bg-muted text-muted-foreground border-border';
     }
   };
 
@@ -50,7 +50,7 @@ export default function Internships() {
       </div>
 
       {/* Search and Filters */}
-      <Card>
+      <Card className="modern-card">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Search className="h-5 w-5" />
@@ -147,11 +147,11 @@ export default function Internships() {
       {/* Internships Grid */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filteredInternships.map((internship) => (
-          <Card key={internship.id} className="transition-all duration-200 hover:shadow-medium hover:-translate-y-1">
+          <Card key={internship.id} className="transition-all duration-300 hover:shadow-medium hover:-translate-y-1 modern-card group">
             <CardHeader className="pb-3">
               <div className="flex items-start justify-between">
                 <div className="space-y-1">
-                  <CardTitle className="line-clamp-2 text-lg">{internship.title}</CardTitle>
+                  <CardTitle className="line-clamp-2 text-lg group-hover:text-primary transition-colors">{internship.title}</CardTitle>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Building2 className="h-4 w-4" />
                     {internship.company}
@@ -189,12 +189,12 @@ export default function Internships() {
                 <div className="text-xs font-medium text-muted-foreground">SKILLS REQUIRED</div>
                 <div className="flex flex-wrap gap-1">
                   {internship.skills.slice(0, 3).map((skill, index) => (
-                    <Badge key={index} variant="secondary" className="text-xs">
+                    <Badge key={index} variant="secondary" className="text-xs bg-gradient-to-r from-primary/10 to-accent/10 text-primary border-primary/20">
                       {skill}
                     </Badge>
                   ))}
                   {internship.skills.length > 3 && (
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge variant="secondary" className="text-xs bg-gradient-to-r from-orange/10 to-orange/20 text-orange border-orange/30">
                       +{internship.skills.length - 3} more
                     </Badge>
                   )}
@@ -203,7 +203,7 @@ export default function Internships() {
 
               <div className="pt-2">
                 <Link to={`/internships/${internship.id}`}>
-                  <Button className="w-full gap-2">
+                  <Button className="w-full gap-2 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 btn-primary-hover">
                     <Eye className="h-4 w-4" />
                     View Details
                   </Button>
@@ -217,9 +217,9 @@ export default function Internships() {
       {/* No Results */}
       {filteredInternships.length === 0 && (
         <div className="py-12 text-center">
-          <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-muted flex items-center justify-center">
-            <Search className="h-8 w-8 text-muted-foreground" />
-          </div>
+        <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+          <Search className="h-8 w-8 text-primary" />
+        </div>
           <h3 className="text-lg font-semibold">No internships found</h3>
           <p className="text-muted-foreground">
             Try adjusting your search criteria or filters

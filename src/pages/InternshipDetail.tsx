@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -5,12 +6,12 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { ArrowLeft, MapPin, Clock, IndianRupee, Building2, Calendar, CheckCircle, Send } from 'lucide-react';
 import { getInternshipById } from '@/data/internships';
-import { useToast } from '@/hooks/use-toast';
+import { ApplicationModal } from '@/components/ui/application-modal';
 
 export default function InternshipDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { toast } = useToast();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const internship = id ? getInternshipById(id) : null;
 
   if (!internship) {
@@ -28,19 +29,15 @@ export default function InternshipDetail() {
   }
 
   const handleApply = () => {
-    toast({
-      title: "Application Submitted!",
-      description: "Your application has been submitted successfully. You will receive updates via email.",
-    });
-    // In a real app, this would submit the application
+    setIsModalOpen(true);
   };
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'remote': return 'bg-green-100 text-green-800 border-green-200';
-      case 'hybrid': return 'bg-blue-100 text-blue-800 border-blue-200';
-      case 'on-site': return 'bg-orange-100 text-orange-800 border-orange-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+      case 'remote': return 'bg-accent/20 text-accent border-accent/30';
+      case 'hybrid': return 'bg-primary/20 text-primary border-primary/30';
+      case 'on-site': return 'bg-orange/20 text-orange border-orange/30';
+      default: return 'bg-muted text-muted-foreground border-border';
     }
   };
 
@@ -60,7 +57,7 @@ export default function InternshipDetail() {
         {/* Main Content */}
         <div className="space-y-6 lg:col-span-2">
           {/* Header */}
-          <Card>
+          <Card className="modern-card">
             <CardHeader>
               <div className="flex items-start justify-between">
                 <div className="space-y-2">
@@ -93,7 +90,7 @@ export default function InternshipDetail() {
           </Card>
 
           {/* Description */}
-          <Card>
+          <Card className="modern-card">
             <CardHeader>
               <CardTitle>About This Internship</CardTitle>
             </CardHeader>
@@ -105,7 +102,7 @@ export default function InternshipDetail() {
           </Card>
 
           {/* Requirements */}
-          <Card>
+          <Card className="modern-card">
             <CardHeader>
               <CardTitle>Requirements</CardTitle>
             </CardHeader>
@@ -122,14 +119,14 @@ export default function InternshipDetail() {
           </Card>
 
           {/* Skills */}
-          <Card>
+          <Card className="modern-card">
             <CardHeader>
               <CardTitle>Skills You'll Develop</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2">
                 {internship.skills.map((skill, index) => (
-                  <Badge key={index} variant="default" className="bg-primary/10 text-primary">
+                  <Badge key={index} variant="default" className="bg-gradient-to-r from-primary/20 to-accent/20 text-primary border-primary/30">
                     {skill}
                   </Badge>
                 ))}
@@ -141,44 +138,48 @@ export default function InternshipDetail() {
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Apply Card */}
-          <Card className="sticky top-6">
+          <Card className="sticky top-6 modern-card coral-gradient text-white">
             <CardHeader>
-              <CardTitle className="text-center">Apply Now</CardTitle>
-              <CardDescription className="text-center">
+              <CardTitle className="text-center text-white">Apply Now</CardTitle>
+              <CardDescription className="text-center text-white/90">
                 Don't miss this opportunity to grow your career
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-3 text-sm">
                 <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Application Deadline</span>
-                  <div className="flex items-center gap-1">
+                  <span className="text-white/80">Application Deadline</span>
+                  <div className="flex items-center gap-1 text-white">
                     <Calendar className="h-4 w-4" />
                     <span className="font-medium">{new Date(internship.deadline).toLocaleDateString('en-IN')}</span>
                   </div>
                 </div>
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Sector</span>
-                  <Badge variant="secondary">{internship.sector}</Badge>
+                  <span className="text-white/80">Sector</span>
+                  <Badge variant="secondary" className="bg-white/20 text-white border-white/30">{internship.sector}</Badge>
                 </div>
               </div>
 
               <Separator />
 
-              <Button onClick={handleApply} size="lg" className="w-full gap-2">
+              <Button 
+                onClick={handleApply} 
+                size="lg" 
+                className="w-full gap-2 bg-white text-orange hover:bg-white/90 btn-primary-hover"
+              >
                 <Send className="h-5 w-5" />
                 Apply for This Internship
               </Button>
 
-              <div className="text-center text-xs text-muted-foreground">
+              <div className="text-center text-xs text-white/70">
                 By applying, you agree to our Terms of Service and Privacy Policy
               </div>
             </CardContent>
           </Card>
 
           {/* Quick Stats */}
-          <Card>
+          <Card className="modern-card">
             <CardHeader>
               <CardTitle>Quick Stats</CardTitle>
             </CardHeader>
@@ -201,7 +202,7 @@ export default function InternshipDetail() {
           </Card>
 
           {/* Similar Internships */}
-          <Card>
+          <Card className="modern-card">
             <CardHeader>
               <CardTitle>Similar Opportunities</CardTitle>
             </CardHeader>
@@ -224,6 +225,12 @@ export default function InternshipDetail() {
           </Card>
         </div>
       </div>
+
+      <ApplicationModal 
+        open={isModalOpen}
+        onOpenChange={setIsModalOpen}
+        internshipTitle={internship?.title || ""}
+      />
     </div>
   );
 }
