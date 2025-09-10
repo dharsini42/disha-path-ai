@@ -21,7 +21,7 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-sidebar shadow-medium">
+    <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-sidebar shadow-medium lg:block hidden">
       <div className="flex h-full flex-col">
         {/* Logo Section */}
         <div className="flex items-center justify-center border-b border-sidebar-border p-6">

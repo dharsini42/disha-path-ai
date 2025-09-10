@@ -159,10 +159,23 @@
   }
 
   .glass-effect {
-    @apply backdrop-blur-sm bg-white/80 border border-white/20;
+    @apply backdrop-blur-md bg-white/90 border border-white/20 shadow-medium;
+  }
+
+  .modern-card {
+    @apply bg-white rounded-xl shadow-soft border border-border/50 hover:shadow-medium transition-all duration-300 hover:-translate-y-0.5;
   }
 
   .modern-input {
     @apply border-border/50 focus:border-primary focus:ring-primary/20 transition-all duration-200 rounded-lg;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
   }
 }
