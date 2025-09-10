@@ -1,22 +1,33 @@
 import { Button } from '@/components/ui/button';
-import { Bell, LogOut } from 'lucide-react';
+import { LogOut, Bell } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 export function Header() {
   return (
-    <header className="ml-64 flex h-16 items-center justify-between border-b bg-background px-6 shadow-soft">
+    <header className="ml-64 flex h-16 items-center justify-between border-b bg-card px-6 shadow-soft">
       <div className="flex items-center gap-4">
-        <div className="h-8 w-8 rounded bg-primary"></div>
-        <span className="text-lg font-semibold text-foreground">
-          Government Internship Portal
-        </span>
+        <div className="flex items-center space-x-3">
+          <div className="h-10 w-10 bg-primary rounded-lg flex items-center justify-center shadow-medium">
+            <span className="text-primary-foreground font-bold text-lg">D</span>
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-foreground">DISHA</h1>
+            <p className="text-xs text-muted-foreground">AI Automation Engine</p>
+          </div>
+        </div>
       </div>
 
       <div className="flex items-center gap-4">
-        <Button variant="ghost" size="icon">
-          <Bell className="h-5 w-5" />
-        </Button>
+        <div className="relative">
+          <Button variant="ghost" size="icon" className="relative">
+            <Bell className="h-5 w-5" />
+            <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-orange">
+              3
+            </Badge>
+          </Button>
+        </div>
         
-        <Button variant="outline" size="sm" className="gap-2">
+        <Button variant="outline" size="sm" className="gap-2 hover:bg-destructive hover:text-destructive-foreground">
           <LogOut className="h-4 w-4" />
           Logout
         </Button>

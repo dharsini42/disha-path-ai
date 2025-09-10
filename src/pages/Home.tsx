@@ -1,12 +1,18 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Target, Users, Award, TrendingUp } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import heroImage from '@/assets/hero-illustration.jpg';
+import { PartnersCarousel } from '@/components/home/PartnersCarousel';
+import { EligibilityDashboard } from '@/components/home/EligibilityDashboard';
+import { BenefitsSection } from '@/components/home/BenefitsSection';
+import { SocialMediaGallery } from '@/components/home/SocialMediaGallery';
+import { EventGallery } from '@/components/home/EventGallery';
+import { OpportunitiesCarousel } from '@/components/home/OpportunitiesCarousel';
+import { IndiaMapVisualization } from '@/components/home/IndiaMapVisualization';
 
 export default function Home() {
   return (
-    <div className="space-y-8 p-6">
+    <div className="space-y-12 p-6">
       {/* Hero Section */}
       <section className="hero-gradient rounded-2xl p-8 text-white shadow-strong md:p-12">
         <div className="grid gap-8 md:grid-cols-2 md:items-center">
@@ -53,77 +59,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="card-gradient shadow-soft transition-transform hover:scale-105">
-          <CardHeader className="text-center">
-            <Target className="mx-auto h-12 w-12 text-primary" />
-            <CardTitle className="text-lg">AI Matching</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <CardDescription className="text-center">
-              Advanced AI algorithms match your skills with the perfect internship opportunities
-            </CardDescription>
-          </CardContent>
-        </Card>
+      {/* Partners Carousel */}
+      <PartnersCarousel />
 
-        <Card className="card-gradient shadow-soft transition-transform hover:scale-105">
-          <CardHeader className="text-center">
-            <Users className="mx-auto h-12 w-12 text-accent" />
-            <CardTitle className="text-lg">Government Backed</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <CardDescription className="text-center">
-              Official government internships from various ministries and departments
-            </CardDescription>
-          </CardContent>
-        </Card>
+      {/* Eligibility Dashboard */}
+      <EligibilityDashboard />
 
-        <Card className="card-gradient shadow-soft transition-transform hover:scale-105">
-          <CardHeader className="text-center">
-            <Award className="mx-auto h-12 w-12 text-orange" />
-            <CardTitle className="text-lg">Certified Programs</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <CardDescription className="text-center">
-              Gain valuable certificates and experience through structured internship programs
-            </CardDescription>
-          </CardContent>
-        </Card>
+      {/* Core Benefits */}
+      <BenefitsSection />
 
-        <Card className="card-gradient shadow-soft transition-transform hover:scale-105">
-          <CardHeader className="text-center">
-            <TrendingUp className="mx-auto h-12 w-12 text-primary" />
-            <CardTitle className="text-lg">Career Growth</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <CardDescription className="text-center">
-              Build your career with mentorship and real-world experience in government sector
-            </CardDescription>
-          </CardContent>
-        </Card>
-      </section>
+      {/* Social Media Gallery */}
+      <SocialMediaGallery />
 
-      {/* Stats Section */}
-      <section className="rounded-xl bg-muted/50 p-8">
-        <h3 className="mb-8 text-center text-2xl font-bold text-foreground">
-          Platform Statistics
-        </h3>
-        <div className="grid gap-6 text-center md:grid-cols-3">
-          <div className="space-y-2">
-            <div className="text-3xl font-bold text-primary">500+</div>
-            <div className="text-sm text-muted-foreground">Active Internships</div>
-          </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-bold text-accent">25,000+</div>
-            <div className="text-sm text-muted-foreground">Registered Students</div>
-          </div>
-          <div className="space-y-2">
-            <div className="text-3xl font-bold text-orange">15+</div>
-            <div className="text-sm text-muted-foreground">Government Ministries</div>
-          </div>
-        </div>
-      </section>
+      {/* Event Gallery */}
+      <EventGallery />
+
+      {/* Opportunities Carousel */}
+      <OpportunitiesCarousel />
+
+      {/* India Map Visualization */}
+      <IndiaMapVisualization />
     </div>
   );
 }
