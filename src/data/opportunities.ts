@@ -18,6 +18,7 @@ export interface Opportunity {
   count: number;
   description: string;
   color: string;
+  image?: string;
 }
 
 export const opportunities: Opportunity[] = [
@@ -27,7 +28,8 @@ export const opportunities: Opportunity[] = [
     icon: Laptop,
     count: 150,
     description: 'Software development, data analysis, cybersecurity',
-    color: 'text-blue-600'
+    color: 'text-blue-600',
+    image: '/src/assets/sectors/it-sector.jpg'
   },
   {
     id: '2', 
@@ -35,7 +37,8 @@ export const opportunities: Opportunity[] = [
     icon: Heart,
     count: 85,
     description: 'Public health, medical research, healthcare administration',
-    color: 'text-red-500'
+    color: 'text-red-500',
+    image: '/src/assets/sectors/healthcare-sector.jpg'
   },
   {
     id: '3',

@@ -18,7 +18,7 @@ export const socialMediaPosts: SocialMediaPost[] = [
     date: '2024-03-10',
     likes: 1250,
     shares: 340,
-    image: '/placeholder.svg'
+    image: '/src/assets/social/digital-india-post.jpg'
   },
   {
     id: '2', 
@@ -37,7 +37,7 @@ export const socialMediaPosts: SocialMediaPost[] = [
     date: '2024-03-05',
     likes: 3400,
     shares: 1200,
-    image: '/placeholder.svg'
+    image: '/src/assets/social/success-stories.jpg'
   },
   {
     id: '4',

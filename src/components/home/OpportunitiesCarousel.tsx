@@ -26,38 +26,58 @@ export function OpportunitiesCarousel() {
             return (
               <CarouselItem key={opportunity.id} className="md:basis-1/2 lg:basis-1/4">
                 <div className="p-3">
-                  <Card className="h-full shadow-soft hover:shadow-medium transition-all duration-300 group cursor-pointer">
-                    <CardContent className="p-6 space-y-4 text-center">
-                      <div className="space-y-4">
-                        <div className="mx-auto w-16 h-16 bg-muted/50 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                          <Icon className={`h-8 w-8 ${opportunity.color}`} />
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <h3 className="font-bold text-foreground text-lg leading-tight">
-                            {opportunity.title}
-                          </h3>
-                          <p className="text-muted-foreground text-sm leading-relaxed">
-                            {opportunity.description}
-                          </p>
-                        </div>
+                    <Card className="h-full shadow-soft hover:shadow-medium transition-all duration-300 group cursor-pointer">
+                      <CardContent className="p-6 space-y-4 text-center">
+                        {opportunity.image ? (
+                          <div className="space-y-4">
+                            <div className="w-full h-32 rounded-lg overflow-hidden">
+                              <img 
+                                src={opportunity.image} 
+                                alt={opportunity.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <h3 className="font-bold text-foreground text-lg leading-tight">
+                                {opportunity.title}
+                              </h3>
+                              <p className="text-muted-foreground text-sm leading-relaxed">
+                                {opportunity.description}
+                              </p>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="space-y-4">
+                            <div className="mx-auto w-16 h-16 bg-muted/50 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                              <Icon className={`h-8 w-8 ${opportunity.color}`} />
+                            </div>
+                            
+                            <div className="space-y-2">
+                              <h3 className="font-bold text-foreground text-lg leading-tight">
+                                {opportunity.title}
+                              </h3>
+                              <p className="text-muted-foreground text-sm leading-relaxed">
+                                {opportunity.description}
+                              </p>
+                            </div>
+                          </div>
+                        )}
 
                         <div className="flex items-center justify-center">
                           <Badge variant="secondary" className="text-lg font-bold px-3 py-1">
                             {opportunity.count}+ Openings
                           </Badge>
                         </div>
-                      </div>
 
-                      <Button 
-                        variant="outline" 
-                        className="w-full group/btn opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      >
-                        View Opportunities
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </Button>
-                    </CardContent>
-                  </Card>
+                        <Button 
+                          variant="outline" 
+                          className="w-full group/btn opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        >
+                          View Opportunities
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                        </Button>
+                      </CardContent>
+                    </Card>
                 </div>
               </CarouselItem>
             );

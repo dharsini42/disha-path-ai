@@ -1,10 +1,14 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { IndianRupee, Trophy, BookOpen, Users, Briefcase, TrendingUp } from 'lucide-react';
+import monthlyStipendImg from '@/assets/benefits/monthly-stipend.jpg';
+import governmentCertImg from '@/assets/benefits/government-certificate.jpg';
+import skillDevImg from '@/assets/benefits/skill-development.jpg';
 
 export function BenefitsSection() {
   const benefits = [
     {
       icon: IndianRupee,
+      image: monthlyStipendImg,
       title: 'Monthly Stipend',
       description: 'Receive ₹5,000-₹20,000 monthly stipend based on role and organization',
       color: 'text-green-600',
@@ -12,6 +16,7 @@ export function BenefitsSection() {
     },
     {
       icon: Trophy,
+      image: governmentCertImg,
       title: 'Government Certificate',
       description: 'Official government certification upon successful completion',
       color: 'text-orange-600', 
@@ -19,6 +24,7 @@ export function BenefitsSection() {
     },
     {
       icon: BookOpen,
+      image: skillDevImg,
       title: 'Skill Development',
       description: 'Learn industry-relevant skills through structured training programs',
       color: 'text-blue-600',
@@ -62,9 +68,19 @@ export function BenefitsSection() {
           return (
             <Card key={index} className="card-gradient shadow-soft hover:shadow-medium transition-all duration-300 group">
               <CardContent className="p-6 space-y-4">
-                <div className={`w-14 h-14 ${benefit.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
-                  <Icon className={`h-7 w-7 ${benefit.color}`} />
-                </div>
+                {benefit.image ? (
+                  <div className="w-full h-32 rounded-lg overflow-hidden">
+                    <img 
+                      src={benefit.image} 
+                      alt={benefit.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                ) : (
+                  <div className={`w-14 h-14 ${benefit.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
+                    <Icon className={`h-7 w-7 ${benefit.color}`} />
+                  </div>
+                )}
                 
                 <div className="space-y-2">
                   <h3 className="font-bold text-foreground text-xl">{benefit.title}</h3>
