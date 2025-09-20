@@ -27,7 +27,8 @@ export const socialMediaPosts: SocialMediaPost[] = [
     author: 'Ministry of Skill Development',
     date: '2024-03-08',
     likes: 2100,
-    shares: 780
+    shares: 780,
+    image: '/src/assets/social/government-announcement.jpg'
   },
   {
     id: '3',
@@ -46,7 +47,8 @@ export const socialMediaPosts: SocialMediaPost[] = [
     author: '@StartupIndia',
     date: '2024-03-03',
     likes: 980,
-    shares: 250
+    shares: 250,
+    image: '/src/assets/social/linkedin-success.jpg'
   },
   {
     id: '5',
@@ -55,6 +57,7 @@ export const socialMediaPosts: SocialMediaPost[] = [
     author: 'Digital India Corporation', 
     date: '2024-03-01',
     likes: 1680,
-    shares: 420
+    shares: 420,
+    image: '/src/assets/social/government-announcement.jpg'
   }
 ];

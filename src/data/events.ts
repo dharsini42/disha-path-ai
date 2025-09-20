@@ -47,5 +47,21 @@ export const events: Event[] = [
     date: '2024-04-10',
     description: 'Launch of new environmental technology internship opportunities',
     location: 'Chennai'
+  },
+  {
+    id: '6',
+    title: 'Technology Innovation Workshop',
+    image: '/src/assets/events/tech-workshop.jpg',
+    date: '2024-04-15',
+    description: 'Hands-on workshop on emerging technologies in government sector',
+    location: 'Pune'
+  },
+  {
+    id: '7',
+    title: 'Government Policy Internship Fair',
+    image: '/src/assets/events/policy-fair.jpg',
+    date: '2024-04-20',
+    description: 'Meet policy makers and explore internship opportunities in governance',
+    location: 'Kolkata'
   }
 ];

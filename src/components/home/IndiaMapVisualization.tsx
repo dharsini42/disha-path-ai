@@ -5,14 +5,18 @@ import { MapPin, Users, Building, GraduationCap, TrendingUp } from 'lucide-react
 
 export function IndiaMapVisualization() {
   const stateData = [
-    { name: 'Delhi', internships: 245, sectors: ['Technology', 'Policy', 'Administration'], coordinates: { x: 45, y: 30 } },
-    { name: 'Maharashtra', internships: 189, sectors: ['Finance', 'Technology', 'Manufacturing'], coordinates: { x: 35, y: 60 } },
-    { name: 'Karnataka', internships: 156, sectors: ['Technology', 'Aerospace', 'Biotechnology'], coordinates: { x: 38, y: 75 } },
-    { name: 'Tamil Nadu', internships: 134, sectors: ['Healthcare', 'Technology', 'Education'], coordinates: { x: 42, y: 85 } },
-    { name: 'West Bengal', internships: 98, sectors: ['Education', 'Culture', 'Industry'], coordinates: { x: 60, y: 50 } },
-    { name: 'Gujarat', internships: 87, sectors: ['Manufacturing', 'Chemical', 'Energy'], coordinates: { x: 25, y: 50 } },
-    { name: 'Rajasthan', internships: 76, sectors: ['Tourism', 'Mining', 'Agriculture'], coordinates: { x: 30, y: 40 } },
-    { name: 'Uttar Pradesh', internships: 165, sectors: ['Agriculture', 'Administration', 'Education'], coordinates: { x: 50, y: 35 } }
+    { name: 'Delhi', internships: 245, sectors: ['Technology', 'Policy', 'Administration'], coordinates: { x: 46, y: 24 } },
+    { name: 'Maharashtra', internships: 189, sectors: ['Finance', 'Technology', 'Manufacturing'], coordinates: { x: 32, y: 55 } },
+    { name: 'Karnataka', internships: 156, sectors: ['Technology', 'Aerospace', 'Biotechnology'], coordinates: { x: 41, y: 70 } },
+    { name: 'Tamil Nadu', internships: 134, sectors: ['Healthcare', 'Technology', 'Education'], coordinates: { x: 48, y: 85 } },
+    { name: 'West Bengal', internships: 98, sectors: ['Education', 'Culture', 'Industry'], coordinates: { x: 80, y: 45 } },
+    { name: 'Gujarat', internships: 87, sectors: ['Manufacturing', 'Chemical', 'Energy'], coordinates: { x: 21, y: 48 } },
+    { name: 'Rajasthan', internships: 76, sectors: ['Tourism', 'Mining', 'Agriculture'], coordinates: { x: 28, y: 35 } },
+    { name: 'Uttar Pradesh', internships: 165, sectors: ['Agriculture', 'Administration', 'Education'], coordinates: { x: 58, y: 25 } },
+    { name: 'Punjab', internships: 65, sectors: ['Agriculture', 'Technology'], coordinates: { x: 40, y: 15 } },
+    { name: 'Haryana', internships: 54, sectors: ['Agriculture', 'Industry'], coordinates: { x: 48, y: 20 } },
+    { name: 'Madhya Pradesh', internships: 89, sectors: ['Mining', 'Agriculture'], coordinates: { x: 48, y: 38 } },
+    { name: 'Assam', internships: 43, sectors: ['Tea', 'Oil'], coordinates: { x: 85, y: 35 } }
   ];
 
   const sectors = [
@@ -43,20 +47,96 @@ export function IndiaMapVisualization() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6" style={{ minHeight: '400px' }}>
-                {/* Simplified India Map Outline */}
+              <div className="relative bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-6" style={{ minHeight: '500px' }}>
+                {/* Detailed India Political Map */}
                 <svg
-                  viewBox="0 0 100 100"
+                  viewBox="0 0 800 600"
                   className="w-full h-full absolute inset-0"
                   style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.1))' }}
                 >
-                  {/* Simplified India outline */}
-                  <path
-                    d="M20 35 Q25 25 35 30 Q45 25 55 30 Q65 25 75 35 Q80 45 75 55 Q70 65 60 70 Q50 75 40 80 Q30 85 25 75 Q20 65 15 55 Q15 45 20 35 Z"
-                    fill="hsl(var(--primary)/0.1)"
-                    stroke="hsl(var(--primary))"
-                    strokeWidth="0.5"
-                  />
+                  {/* Background */}
+                  <rect width="800" height="600" fill="transparent" />
+                  
+                  {/* Major States Outlines */}
+                  {/* Rajasthan */}
+                  <path d="M150 180 L250 170 L280 200 L290 250 L250 280 L200 290 L160 260 L140 220 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Gujarat */}
+                  <path d="M120 250 L200 240 L220 280 L210 320 L180 340 L140 330 L110 300 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Maharashtra */}
+                  <path d="M200 280 L300 270 L350 300 L360 350 L320 380 L250 390 L210 360 L190 320 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Karnataka */}
+                  <path d="M280 380 L360 370 L380 420 L370 470 L320 480 L270 460 L260 420 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Tamil Nadu */}
+                  <path d="M320 450 L380 440 L420 480 L430 520 L390 540 L340 530 L310 500 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Kerala */}
+                  <path d="M280 480 L320 470 L340 510 L330 540 L300 550 L270 530 L265 500 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Andhra Pradesh & Telangana */}
+                  <path d="M360 350 L450 340 L480 380 L470 420 L420 440 L370 430 L350 390 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Odisha */}
+                  <path d="M450 300 L520 290 L540 330 L530 370 L480 380 L440 360 L430 320 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Chhattisgarh */}
+                  <path d="M380 250 L450 240 L480 280 L470 320 L430 330 L390 310 L370 270 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Madhya Pradesh */}
+                  <path d="M280 200 L450 190 L480 230 L470 270 L380 280 L320 270 L290 240 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Uttar Pradesh */}
+                  <path d="M350 120 L550 110 L570 150 L560 190 L480 200 L420 180 L380 160 L340 140 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Bihar */}
+                  <path d="M520 150 L600 140 L620 180 L610 210 L570 220 L540 200 L510 170 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Jharkhand */}
+                  <path d="M540 200 L600 190 L620 230 L610 260 L570 270 L530 250 L520 220 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* West Bengal */}
+                  <path d="M580 220 L650 210 L670 250 L660 290 L620 300 L590 280 L570 250 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Delhi NCR */}
+                  <path d="M340 140 L370 135 L375 155 L365 165 L345 160 L335 150 Z" 
+                    fill="hsl(var(--accent)/0.15)" stroke="hsl(var(--accent))" strokeWidth="2" />
+                  
+                  {/* Punjab */}
+                  <path d="M280 80 L350 70 L370 100 L360 130 L320 140 L290 120 L270 100 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Haryana */}
+                  <path d="M320 100 L380 90 L400 120 L390 150 L350 160 L330 130 L315 110 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Himachal Pradesh */}
+                  <path d="M280 50 L380 40 L400 70 L390 90 L320 100 L290 80 L270 60 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Uttarakhand */}
+                  <path d="M380 70 L450 60 L470 90 L460 120 L420 130 L390 110 L375 85 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
+                  
+                  {/* Assam & Northeast */}
+                  <path d="M650 160 L720 150 L740 190 L730 230 L700 240 L670 220 L640 190 Z" 
+                    fill="hsl(var(--primary)/0.08)" stroke="hsl(var(--primary)/0.4)" strokeWidth="1.5" />
                 </svg>
 
                 {/* State markers */}
