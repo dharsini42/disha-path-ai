@@ -11,7 +11,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="ml-64 border-t bg-muted/30 py-8">
+    <footer className="border-t bg-muted/30 py-8">
       <div className="px-6">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Contact Info */}

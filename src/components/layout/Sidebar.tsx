@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button';
 
 const navItems = [
   { title: 'Home', url: '/', icon: Home },
-  { title: 'Profile', url: '/profile', icon: User },
   { title: 'Internships', url: '/internships', icon: Briefcase },
   { title: 'AI Matching', url: '/matching', icon: Brain },
+  { title: 'Profile', url: '/profile', icon: User },
   { title: 'Settings', url: '/settings', icon: Settings },
 ];
 
@@ -21,7 +21,7 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-sidebar shadow-medium lg:block hidden">
+    <aside className="fixed left-0 top-0 z-40 h-full w-64 bg-sidebar shadow-medium lg:block hidden">
       <div className="flex h-full flex-col">
         {/* Logo Section */}
         <div className="flex items-center justify-center border-b border-sidebar-border p-6">
