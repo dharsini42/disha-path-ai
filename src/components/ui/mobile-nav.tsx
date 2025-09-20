@@ -6,9 +6,9 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 const navItems = [
   { title: 'Home', url: '/', icon: Home },
-  { title: 'Profile', url: '/profile', icon: User },
   { title: 'Internships', url: '/internships', icon: Briefcase },
   { title: 'AI Matching', url: '/matching', icon: Brain },
+  { title: 'Profile', url: '/profile', icon: User },
   { title: 'Settings', url: '/settings', icon: Settings },
 ];
 
