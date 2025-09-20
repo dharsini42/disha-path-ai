@@ -2,10 +2,8 @@ import { Button } from '@/components/ui/button';
 import { LogOut, Bell } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { MobileNav } from '@/components/ui/mobile-nav';
-
 export function Header() {
-  return (
-    <header className="flex h-16 items-center justify-between border-b bg-card px-6 shadow-soft">
+  return <header className="flex h-16 items-center justify-between border-b bg-card px-6 shadow-soft">
       <div className="flex items-center gap-4">
         {/* Mobile Navigation */}
         <MobileNav />
@@ -43,11 +41,7 @@ export function Header() {
           </Button>
         </div>
         
-        <Button variant="outline" size="sm" className="gap-2 hover:bg-destructive hover:text-destructive-foreground">
-          <LogOut className="h-4 w-4" />
-          <span className="hidden sm:inline">Logout</span>
-        </Button>
+        
       </div>
-    </header>
-  );
+    </header>;
 }
